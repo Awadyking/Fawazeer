@@ -1,4 +1,4 @@
-let Link = "https://plum-aggressive-cuttlefish.cyclic.app/";
+let Link = "https://fawazeer-api.onrender.com/";
 let Code ; 
 let Datenow;
 let Hours;
