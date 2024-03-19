@@ -1,3 +1,4 @@
+let Link = "https://plum-aggressive-cuttlefish.cyclic.app/";
 let Code ; 
 let Datenow;
 let Hours;
@@ -8,6 +9,16 @@ let SecStart ;
 let SecEnd;
 let Accses = true;
 let Answer;
+let QuesIN;
+let AIN;
+let BIN;
+let CIN;
+let DIN;
+let FIN;
+let TrueIN;
+let Time ;
+
+
 
 function TimeManage(){
     Datenow = new Date()
@@ -16,6 +27,8 @@ function TimeManage(){
     Sec = Datenow.getSeconds()
     SecAll =Math.trunc( Datenow.getTime() / 1000)
 }
+
+
 
 setInterval(()=>{TimeManage()},1000)
 
