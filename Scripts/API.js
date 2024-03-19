@@ -1,12 +1,13 @@
 
 function LoginAPI(Code , Datenow , Timer){
-    axios.put("https://fawazeer-api.onrender.com/Login" , {
+    axios.put(Link + "/Login" , {
         Code : Code , 
         LoginTime : Datenow ,
         Status : true
     })
     .then((Res)=>{
-        if(Res.data[0].Status == false){
+if(Res.data[0].Status == false){
+
        document.getElementById("Scrn").innerHTML = 
        `<div id="Timer">${Timer}</div>
        <div id="H-div">مرحبا ${Res.data[0].Name} !</div><br>
@@ -36,27 +37,29 @@ function LoginAPI(Code , Datenow , Timer){
        TimeBlock()
     
         
-        }else{document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>عذرا! لقد قمت بتسجيل إجابتك بالفعل</p></div>`}
+    }else{document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>عذرا! لقد قمت بتسجيل إجابتك بالفعل</p></div>`}
     
     })
-    .catch((err) =>{document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>عذرا ! هذا الكود غير صحيح</p></div>`})
+    .catch(() =>{document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>عذرا ! هذا الكود غير صحيح</p></div>`})
+    
 }
 
 
 
 function LogoutAPI(Code , Datenow , Answer){
-    axios.put("https://fawazeer-api.onrender.com/Logout" , {
+    axios.put(Link + "/Logout" , {
         Code : Code,
         LogoutTime: Datenow,
         Answer : Answer 
         
     })
     .then((Res) => {
+        Loading(false)
         if(Res.data == "Okay"){
             document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>تم تسجيل إجابتك بنجاح ! نتمنى لك التوفيق</p></div>`
         }else{
             document.getElementById("Scrn").innerHTML = `<div id="Q-div"><p>عذرا! حدث خطأ ما يرجى إعادة المحاولة لاحقا</p></div>`
-            axios.put("https://fawazeer-api.onrender.com/Login" , {
+            axios.put(Link + "/Login" , {
         Code : Code , 
         LoginTime : null ,
         Status : false
